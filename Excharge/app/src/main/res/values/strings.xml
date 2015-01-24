@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Excharge</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="country_korea">대한민국</string>
+    <string name="country_canada">캐나다</string>
+    <string name="country_china">중국</string>
+    <string name="country_brazil">브라질</string>
+    <string name="country_japan">일본</string>
+
+</resources>
