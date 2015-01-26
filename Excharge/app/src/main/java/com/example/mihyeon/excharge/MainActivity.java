@@ -94,7 +94,7 @@ public class MainActivity extends ActionBarActivity implements OnEditorActionLis
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
+                toLang=values[position];
             }
         });
 
