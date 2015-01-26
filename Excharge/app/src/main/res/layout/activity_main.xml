@@ -1,6 +1,8 @@
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/CustomActionBarTheme"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -40,34 +42,66 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             android:orientation="horizontal"
             android:background="#e3e4e4">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="4">
+                android:layout_weight="4"
+                android:orientation="vertical">
 
-                <ListView
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent" android:paddingLeft="4dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="4dp"
-                    android:paddingBottom="0dp"
-                    android:id="@+id/lv1"></ListView>
-
-                <EditText
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:visibility="gone"/>
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/fromTv"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/backbutton"
+                        android:visibility="gone"
+                        android:layout_marginTop="25dp"
+                        android:id="@+id/backbtn"/>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="15sp"
+                        android:id="@+id/et1"
+                        android:visibility="gone"
+                        android:hint="put your value"/>
+
+                    <ListView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" android:paddingLeft="4dp"
+                        android:paddingTop="0dp"
+                        android:paddingRight="4dp"
+                        android:paddingBottom="0dp"
+                        android:id="@+id/lv1"></ListView>
+
+                    </LinearLayout>
+
+
+
 
             </LinearLayout>>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
+                android:layout_gravity="center_vertical"
                 android:text=">" />
 
             <LinearLayout
@@ -99,7 +133,8 @@
         android:layout_height="1dp"
         android:background="#183e51"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        />
 
 
     </LinearLayout>
@@ -121,7 +156,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
         <FrameLayout
@@ -176,7 +211,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
         <FrameLayout

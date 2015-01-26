@@ -4,9 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -14,10 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
-import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -30,9 +33,17 @@ import java.net.URL;
 public class MainActivity extends ActionBarActivity implements OnEditorActionListener {
 
 
+    String[] values = new String[]{
+            "KRW", "USD", "JPN", "CHN", "DHK", "NRK", "ARH"
+    };
+
+    ImageView backBtn;
+    String fromLang, toLang;
+    ListView fromList, toList;
     Handler handler = new Handler();
     TextView ex_rate;  //환율 비율
     EditText edit_from;
+    TextView fromTv;
     TextView edit_to;
     StringBuilder strBuilder = new StringBuilder();
     String tag_value;
@@ -45,11 +56,48 @@ public class MainActivity extends ActionBarActivity implements OnEditorActionLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ex_rate= (TextView)findViewById(R.id.excharge_rate);
+        ArrayAdapter<String> codeLearnArrayAdapter = new ArrayAdapter<String>(this, R.layout.listview_item, R.id.textView1, values);
 
-        edit_to = (TextView)findViewById(R.id.edit_to);
-        edit_from = (EditText)findViewById(R.id.edit_from);
-        edit_from.setOnEditorActionListener(this);
+      //  ex_rate= (TextView)findViewById(R.id.excharge_rate);
+        backBtn = (ImageView)findViewById(R.id.backbtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fromTv.setVisibility(View.GONE);
+                edit_from.setVisibility(View.GONE);
+                backBtn.setVisibility(View.GONE);
+                fromList.setVisibility(View.VISIBLE);
+
+            }
+        });
+        fromTv = (TextView)findViewById(R.id.fromTv);
+        fromList = (ListView)findViewById(R.id.lv1);
+        toList = (ListView)findViewById(R.id.lv2);
+       // edit_to = (TextView)findViewById(R.id.edit_to);
+        edit_from = (EditText)findViewById(R.id.et1);
+        //edit_from.setOnE);
+        fromList.setAdapter(codeLearnArrayAdapter);
+        fromList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                fromLang = values[position];
+                fromTv.setVisibility(View.VISIBLE);
+                fromTv.setText(fromLang);
+                fromList.setVisibility(View.INVISIBLE);
+                edit_from.setVisibility(View.VISIBLE);
+                backBtn.setVisibility(View.VISIBLE);
+            }
+        });
+        toList.setAdapter(codeLearnArrayAdapter);
+        toList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+            }
+        });
+
 
 
         //db생성
@@ -66,6 +114,7 @@ public class MainActivity extends ActionBarActivity implements OnEditorActionLis
         select();
 
     }
+
 
     public void insert(String full_name, String short_name){
         db = helper.getWritableDatabase();  //db 객체를 얻어온다. 쓰기가능

@@ -1,8 +1,15 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <!-- 앱이나 액티비티에 적용되는 테마 -->
+        <style name="CustomActionBarTheme"
+            parent="@style/Theme.AppCompat.Light.DarkActionBar">
+            <item name = "android:actionBarStyle">@style/MyActionBar</item>
+        </style>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <!-- 액션 바 스타일 -->
+        <style name="MyActionBar"
+            parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">#183e51</item>
     </style>
+    </resources>
 
-</resources>
