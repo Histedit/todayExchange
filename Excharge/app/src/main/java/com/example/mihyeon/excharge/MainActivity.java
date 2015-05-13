@@ -37,6 +37,8 @@ public class MainActivity extends ActionBarActivity implements OnEditorActionLis
             "KRW", "USD", "JPN", "CHN", "DHK", "NRK", "ARH"
     };
 
+    Boolean chkRev;
+    int chkRevNum;
     ImageView backBtn;
     String fromLang, toLang;
     ListView fromList, toList;
@@ -45,7 +47,7 @@ public class MainActivity extends ActionBarActivity implements OnEditorActionLis
     EditText edit_from;
     TextView fromTv;
     TextView edit_to;
-    StringBuilder strBuilder = new StringBuilder();
+   // StringBuilder strBuilder = new StringBuilder();
     String tag_value;
 
     SQLiteDatabase db;
@@ -98,7 +100,7 @@ public class MainActivity extends ActionBarActivity implements OnEditorActionLis
             }
         });
 
-
+        chkRevNum =(chkRev.booleanValue())? 1 : 2;
 
         //db생성
         helper = new DBManager(MainActivity.this, "Excharge.db",null,1); //현재화면의 context, 파일명, 커서 팩토리, 버전 번호
@@ -110,7 +112,6 @@ public class MainActivity extends ActionBarActivity implements OnEditorActionLis
         insert("호주","AUD");
         insert("캐나다","CAD");
         insert("뉴질랜드","NZD");*/
-
         select();
 
     }

@@ -46,6 +46,8 @@
 
             </LinearLayout>
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -297,6 +299,35 @@
                 android:layout_marginBottom="10dp"/>
 
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+               android:textColor="#183e51"
+               android:singleLine="true"
+               android:textSize="16sp"
+               android:id="@+id/tv3"
+               android:textStyle="bold"
+               android:text="another things"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#183e51"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+
+            </LinearLayout>
+
 
     </LinearLayout>
 
